@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대법원</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xpressengine/xeicon@2.3.1/xeicon.min.css">
+    <style>
+        *{margin: 0 ; padding: 0;}
+        body, html{width: 100%; min-width: 1280px; font-family: 'Noto Sans KR', sans-serif;  }
+        ul,li{list-style: none;}
+        a{text-decoration: none; color: black;}
+        .wrap{width: 100%;}
+
+        /* header */
+        .hd{clear: both; width: 100%;  }
+        .header_top{clear: both; width: 100%; height: 67px; background-color: #2f1e28;}
+        .gnb{clear: both; width: 1280px; margin: 0 auto; display: flex; flex-flow: row nowrap; justify-content: space-between;}
+        .gnb_left li{float: left; margin-right: 3px; line-height: 50px;}
+        .gnb_left li a{display: inline-block; border: 1px solid #483942; margin: 13px 3px 0 0 ;
+        color: #9e8895; background: #2f1e28; font-size: 16px; padding: 0 22px; height: 42px; line-height: 42px;}
+        .gnb_right li{float: left; margin-left: 10px; line-height: 60px;}
+        .gnb_right li a{ margin: 0 17px; color: #a3a7ab; font-size: 14px;}
+        .gnb_right li span{color: #848e97; font-size: 14px;}
+
+        .header_bottom{clear: both; width: 100%; background: url(./img/gnb_bg.gif);}
+        .tnb{clear: both; width: 1280px; margin: 0 auto; display: flex; flex-flow: row nowrap; justify-content: space-between;}
+        .tnb_center li{float: left; line-height: 75px; margin: 0 9px; padding: 0 20px; color: #000000;}
+        .tnb_right li{float: left; line-height: 100px; margin-left: 6px;}
+        .right_tit{padding-top: 15px;}
+        
+
+        /* content */
+        .content{clear: both; width: 100%; height: 490px;background: #000000; }
+        .vs{clear: both; width: 1280px;margin: 0 auto; overflow: hidden; display: flex;
+        flex-flow: row nowrap; justify-content: space-between;}
+        .content_left{clear: both; width: 770px; }
+        .content_right{clear: both; width: 470px; height: 439px; padding-top: 40px;}
+        .content_right_main{position: relative; clear: both; width: 330px; height: 400px; }
+        .right_box{clear: both; width: 330px; height: 40px; border-bottom: 1px solid#dcb;}
+        .right_box h1{font-size: 22px; color: #fff;}
+        .right_box a{position: absolute;  top: 10px; right: 0px;}
+        .right_content{clear: both; width: 330px; height: 300px; margin-top: 25px; display:flex;flex-flow: column nowrap;
+        background: #ffffff;}
+        .right_tit_top li:first-child{float: left;  display: block; width: 33.33%; height: 51px; line-height: 51px; border-top: 3px solid#e74e3f; text-align: center;
+        background: #fff; color: #a2452c; border-bottom: 1px solid#fff; cursor: pointer;}
+        .right_tit_top li:last-child{float: left;  display: block; width: 33%; height: 51px; line-height: 51px;  text-align: center;
+        background: #fff; color: #a2452c; border-bottom: 1px solid#dcb; border-left: 1px solid#dcb; cursor: pointer;
+        background: #eceae7;}
+        .right_tit_top li:nth-child(2){float: left;  display: block; width: 33%; height: 51px; line-height: 51px;  text-align: center;
+        color: #a2452c; background: #eceae7; cursor: pointer;
+         border-bottom: 1px solid#dcb; border-left: 1px solid#dcb;}
+         .right_tit_top li:nth-child(2):active{float: left;  display: block; width: 33%; height: 51px;
+          line-height: 51px;  text-align: center;
+        color: #a2452c; background: #eceae7; 
+         border-left: 1px solid#dcb; border-top: 3px solid#e74e3f;}
+
+
+        .right_tb span{margin-left: 15px; line-height: 30px; font-size: 12px; color: #484848;}
+
+        .page{clear: both; width: 100%; background-color: #eeecec ;}
+        .page_main{clear: both; width: 1280px;margin: 0 auto;
+        display: flex; flex-flow: row wrap; justify-content: space-between;}
+        .box1, .box2 ,.box3 ,.box4 ,.box5 ,.box7{width: 30%; height: 382px; margin-top: 20px; margin-bottom: 80px;}
+        .box1_tit ,.box2_tit ,.box3_tit ,.box4_tit ,.box5_tit ,.box6_tit{clear: both; width: 100%; height: 50px; border-bottom: 1px solid#e74e3f;}
+        .box1_tit h1, .box2_tit h1, .box3_tit h1, .box4_tit h1, .box5_tit h1, .box6_tit h1{text-align: left; line-height: 55px; margin-left: 4px; font-size: 20px; color: #e74e3f;}
+        .box1_tit img, .box2_tit img, .box3_tit img, .box4_tit img,.box5_tit img, .box6_tit img{position: relative; bottom: 35px; left: 368px; }
+        .box1_content, .box2_content, .box3_content{
+        width: 384px; height: 382px; margin-top: 10px; background: #fff; 
+        border: 1px solid#cfcfcf;} 
+        .box1_img img, .box3_img img, .box2_img img{width: 340px; }
+        .box1_content, .box2_content, .box3_content, .box4_content{padding-top: 20px; text-align: center;}
+        .text1_tit{color: #666666; cursor: pointer; font-size: 16px; font-weight: bold; line-height: 24px;}
+        .box1_text2 img {background: url(./img/dotLineBg.png) no-repeat right top; width: 95%; height: 11px; margin-top: 30px; margin-bottom: 10px; }
+        .box1_text1, .box1_text2{text-align: left; padding-left: 20px;}
+        .box1_text2{color: #666666; padding-top: 20px;font-size: 13px; cursor: pointer; }
+        .text2_tit{display: block; width: 345px; height: 40px; }
+
+        .box1_text3 li{font-size: 14px; line-height: 26px; }
+        .box1_text3 li a{float: left; padding-left: 20px; color: #666666;}
+        .box1_text3 li span{float: right; display: inline-block; font-size: 13px; color: #8e8e8e;
+        padding-right: 20px;}
+        .box3_text1{text-align: left; padding-left: 20px; padding-bottom: 22px;}
+        .box4_img{text-align: center; display: block;}
+        .box4_img img{display: block; width: 340px; height: 190px; padding-left: 20px;}
+        .box4_content{width: 384px; height: 340px; margin-top: 10px; background: #fff;
+        border: 1px solid#cfcfcf;}
+        .box4_text2 img {background: url(./img/dotLineBg.png) no-repeat right top; width: 90%; height: 11px; margin-top: 20px; }
+        .text4_tit{font-size: 16px; cursor: pointer; font-weight: bold;  color: #666666;
+        line-height: 24px; }
+        .box4_text1{text-align: left; padding-top: 10px; padding-left: 20px;}
+        .box4_text2 img{ margin-bottom: 10px;}
+        
+        
+        .box5_tit_main{width: 384px; height: 150px; background: #ffffff; margin-top: 10px;}
+        .box5_left, .box6_left{width: 50px; float: left; padding: 5% 5%;}
+        .box5_right, .box6_right{width: 45%; float: right; padding: 5% 25px; }
+        .box5_right a, .box6_right a{font-size: 14px; color: #666666;}
+        .box6_left img, .box5_left img{display: block; width: 146px; height: 96px; cursor: pointer;}
+        .box6_span, .box5_span{color: #666666; font-size: 16px; line-height: 40px;}
+
+        .box6_tit_main{width: 384px; height: 150px; background: #ffffff; margin-top: 10px;}
+        
+
+        .box7{display: flex; flex-flow: column; align-items: center; justify-content: center;}
+        .box7_tit1{width: 386px; height: 93px; border-bottom: 1px solid#dcb; padding-top: 70px;}
+        .box7_tit2{width: 386px; height: 93px; border-bottom: 1px solid#dcb; padding-top: 20px;}
+        .box7_tit3{width: 386px; height: 93px; border-bottom: 1px solid#dcb; padding-top: 20px;}
+        .box7_tit1 ul li ,.box7_tit2 ul li, .box7_tit3 ul li{float: left;}
+        
+        .box7_text{padding-left: 5px; padding-left: 20px; padding-top: 5px;}
+        .box7_text a, .box7_text2 a, .box7_text3 a{font-size: 18px; color: #000; font-weight: bold;}
+        .box7_text, .box7_text2, .box7_text3{font-size: 14px; color: #000000;}
+        .box7_text2{padding-left: 5px; padding-left: 20px; padding-top: 5px;}
+        .box7_text3{ padding-left: 20px; margin-right: 20px; padding-top: 5px;}
+
+        /* footer */
+        .ft{clear: both; width: 100%; position: relative; }
+        .footer_top{clear: both; width: 100%; height: 43px; background: #464646; border-bottom: 1px solid #5c5c5c;}
+        .footer_center{clear: both; width: 100%; height: 450px; background: #464646; border-bottom: 1px solid #5c5c5c;}
+        .footer_right{clear: both; width: 100%; height: 108px; background: #464646;}
+        .footer_top_main{clear: both; width: 1280px; margin: 0 auto; display: flex; flex-flow: row nowrap; justify-content: space-between;}
+        .ft_top_left{color: #fff; font-size: 12px; text-align: center;}
+        .footer_center_main, .footer_right_main{clear: both; width: 1280px; margin: 0 auto; }
+        #img{background: url(./img/icon_facebook.gif) left 0 no-repeat; }
+        #img1{background: url(./img/icon_twitter.gif) left top no-repeat;}
+        #img2{background: url(./img/icon_youtube.gif) left top no-repeat;}
+        #img3{background: url(./img/icon_insta.gif) left top no-repeat;}
+        #img4{background: url(./img/icon_naver.gif) left top no-repeat;}
+        #img5{background: url(./img/icon_daum.gif) left top no-repeat;}
+        #img6{background: url(./img/icon_kakao.gif)left top no-repeat;}
+
+
+        .ft_top_left li{float: left; margin-right: 10px; margin-top: 10px;}
+        .ft_top_left li a{display: block; width: 24px; height: 25px; height: 25px;}
+
+
+        .footer_center{clear: both; width: 100%;background-color: #464646; }
+        .footer_center_main{clear: both; width: 1280px; margin: 0 auto;}
+        .footer_center_main li{float: left; width: 14%; margin-top: 5px; margin-left: 3px; margin-top: 20px;}
+        .main_bar{color: #d2b09d; font-size: 16px; }
+        .main_bar_dl{padding-top: 15px; }
+        .main_bar_dl_a{font-size: 15px; color: #ffffff;}
+        .main_bar_sub{font-size: 12px; color: #aaa;}
+        .main_bar_fuction{padding-top: 23px;}
+
+
+
+
+        .ft_top_right li{float: left; line-height: 40px; text-align: center;}
+        .ft_top_right li a{display: inline-block; line-height: 42px; color: #fff;
+        padding: 0 30px 0 60px; border: 1px solid #5d5d5d;}
+        #ft_top_right_sub{background: url(./img/link1.png)20px 8px no-repeat; }
+        #ft_top_right_sub2{background: url(./img/link2.png)20px 8px no-repeat;}
+        #ft_top_right_sub3{background: url(./img/link3.png)20px 10px no-repeat;}
+        
+
+        .footer_right{clear: both; width: 100%; height: 108px; background: #464646; display: flex;}
+        .footer_right_main{clear: both; width: 1280px; margin: 0 auto; display: flex;
+        flex-flow: row nowrap; justify-content: space-between; align-items: center;}
+
+        .fnb a{font-size: 24px;}
+        .fnb2{clear: both; padding-right: 300px;}
+        .fnb2 ul{display: flex; flex-flow: row nowrap;}
+        .fnb2 li{padding-right: 20px; line-height: 40px}
+        .fnb2 li a{color: #ffffff; font-size: 14px; font-weight: bold;} 
+        .ft_span{font-size: 12px; color:#fff}
+        #tit{color: #f3e50b;}
+        #tit:hover{text-decoration: underline;}
+
+
+
+
+        
+    </style>
+
+ <script src="https://code.jquery.com/jquery-latest.js"></script>
+ <script>
+         function ani() {
+             $(".ban").not(":animated").animate({"margin-left":"-1280px"},500, function(){
+                 $(".ban li").eq(0).appendTo(".ban");
+                 $(".ban").css("margin-left","0");
+             });
+         }
+         var intv = setInterval(function(){ ani(); }, 4000);
+        
+        // $(document).ready(function(){
+        //     $("#tnb_btn").mouseover(function(){
+        //         $(".tnb_right_menu").css({"display":"block"})
+        //     });
+        //     $("#tnb.btn").mouseout(function(){
+        //         $(".tnb_right_menu").css({"display":"none"})
+        //     });
+        // });
+</script>
+
+</head>
+<body>
+    <div class="wrap">
+        <header class="hd">
+            <div class="header_top">
+                <nav class="gnb">
+                    <div class="gnb_left">
+                        <ul>
+                            <li><a href="">대국민서비스</a></li>
+                            <li><a href="">대법원</a></li>
+                            <li><a href="">각급법원</a></li>
+                            <li><a href="">사법부 소개</a></li>
+                        </ul>
+                    </div>
+                    <div class="gnb_right">
+                        <ul>
+                            <li class="gnb_li">
+                                <a href="">Home</a>
+                                <span>|</span>
+                            </li>
+                            <li class="gnb_li">
+                                <a href="">법원사람들</a>
+                                <span>|</span>
+                            </li>
+                                <span>|</span>
+                            <li class="gnb_li">
+                                <a href="">어린이</a>
+                                <span>|</span>
+                            </li>
+                            <li>
+                                <a href="">English</a>
+                                <span>|</span>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                </nav>
+            </div>
+            <div class="header_bottom">
+                <nav class="tnb">
+                    <div class="tnb_left">
+                        <a href="" class="tnb_logo">
+                            <img src="./img/logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="tnb_center">
+                        <ul>
+                            <li><a href="" >재판</a></li>
+                            <li><a href="" >소식</a></li>
+                            <li><a href="" >청사안내</a></li>
+                            <li><a href="">견학안내</a></li>
+                            <li><a href="">대법원소개</a></li>
+                            <li><a href="">사법행정자문회의</a></li>
+                        </ul>
+                    </div>
+                    <div class="tnb_right">
+                       <ul>
+                           <li><a href=""><img src="./img/btn_search.gif" alt=""></a></li>
+                           <li><a href=""><img src="./img/btn_menuAll.gif" alt=""></a></li>
+                       </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main class="content">
+            <div class="vs">
+                <div class="content_left">
+                    <ul class="ban">
+                        <li>
+                            <a href=""><img src="./img/mainImg_20180827.jpg" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content_right">
+                    <div class="content_right_main">
+                        <div class="right_box">
+                            <h1>대법원 주요 재판 안내</h1>
+                            <a href=""><img src="./img/btn_more3.png" alt=""></a>
+                        </div>
+                        <div class="right_content">
+                            <ul class="right_tit_top">
+                                <li>선고</li>
+                                <li>진행</li>
+                                <li>변론</li>
+                            </ul>
+                            <div class="right_tb">
+                                <ul class="right_tit">
+                                    <li>
+                                        <span>제3부</span>
+                                        <span>20.10.29</span>
+                                        <span>2017두523979</span>
+                                        <span>증권거래세부...</span>
+                                    </li>
+                                    <li>
+                                        <span>제3부</span>
+                                        <span>20.10.29</span>
+                                        <span>2017두523979</span>
+                                        <span>증권거래세부...</span>
+                                    <li>
+                                        <span>제3부</span>
+                                        <span>20.10.29</span>
+                                        <span>2017두523979</span>
+                                        <span>증권거래세부...</span>
+                                    <li>
+                                        <span>제3부</span>
+                                        <span>20.10.29</span>
+                                        <span>2017두523979</span>
+                                        <span>증권거래세부...</span>
+                                    <li>
+                                        <span>제3부</span>
+                                        <span>20.10.29</span>
+                                        <span>2017두523979</span>
+                                        <span>증권거래세부...</span>
+                                    <li>
+                                        <span>제3부</span>
+                                        <span>20.10.29</span>
+                                        <span>2017두523979</span>
+                                        <span>증권거래세부...</span>
+                                    <li>
+                                        <span>제3부</span>
+                                        <span>20.10.29</span>
+                                        <span>2017두523979</span>
+                                        <span>증권거래세부...</span>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>       
+                </div>            
+            </div>       
+        </main>
+        <section class="page">
+            <div class="page_main">
+
+                <div class="box1">
+                    <div class="box1_tit">
+                        <h1>새소식</h1>
+                        <a href=""><img src="./img/btn_more.png" alt=""></a>
+                    </div>
+                    <div class="box1_content">
+                        <div class="box1_img">
+                            <img src="./img/newImg1.jpg" alt="">
+                        </div>
+                        <div class="box1_text1">
+                            <span class="text1_tit">
+                                [대법관회의] 2020년 제11회 대법관회의 결과 요지 안내
+                            </span>
+                        </div>
+                        <div class="box1_text2">
+                            <span class="text2_tit">
+                                2020년 제11회 대법관회의 결과 요지를 첨부파일과 같이 안내해 드리오니 참조해 주시기 바랍니다. 감사합니 ...
+                            </span>
+                            <img src="./img/dotLineBg.png" alt="">
+                        </div>
+                        <div class="box1_text3">
+                            <ul>
+                                <li>
+                                    <a href="">2020. 10. 22. 전원합의 ...</a>
+                                    <span>2020.10.20</span>
+                                </li>
+                                <li>
+                                    <a href="">사회적 거리두기 1단계 시행에 따 ...</a>
+                                    <span>2020.10.20</span>
+                                </li>
+                                <li>
+                                    <a href="">법원행정처 사법행정담당직위(일반임 ...</a>
+                                    <span>2020.10.08</span>
+                                </li>              
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="box2">
+                    <div class="box2_tit">
+                        <h1>보도자로/언론보도 해명</h1>
+                        <a href=""><img src="./img/btn_more.png" alt=""></a>
+                    </div>
+                    <div class="box2_content">
+                        <div class="box2_img">
+                            <img src="./img/newImg2.jpg" alt="">
+                        </div>
+                        <div class="box1_text1">
+                            <span class="text1_tit">
+                                특정범죄가중처벌등에관한법률위반(뇌물) 등 사건(2020도3972) 보도자료
+                            </span>
+                        </div>
+                        <div class="box1_text2">
+                            <span class="text2_tit">
+                                대법원(주심 대법관 박상옥)은 2020. 10. 29. 피고인(이명박 前 대통령)에 대한 특정범죄가중법 위반(뇌물) 등 사 ...
+                            </span>
+                            <img src="./img/dotLineBg.png" alt="">
+                        </div>
+                        <div class="box1_text3">
+                            <ul>
+                                <li>
+                                    <a href="">살인 등 사건(2020도9430) ...</a>
+                                    <span>2020.10.30</span>
+                                </li>
+                                <li>
+                                    <a href="">검사의 처분에 대한 준항고 사건의 ...</a>
+                                    <span>2020.10.30</span>
+                                </li>
+                                <li>
+                                    <a href="">사법행정자문회의 제9차 회의(임시 ...</a>
+                                    <span>2020.10.29</span>
+                                </li>              
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="box3">
+                    <div class="box3_tit">
+                        <h1>주요판결</h1>
+                        <a href=""><img src="./img/btn_more.png" alt=""></a>
+                    </div>
+                    <div class="box3_content">
+                        <div class="box3_img">
+                            <img src="./img/newImg3.jpg" alt="">
+                        </div>
+                        <div class="box3_text1">
+                            <span class="text1_tit">
+                                대법원 2020. 10. 29. 선고 중요판결 요지
+                            </span>
+                        </div>
+                        <div class="box1_text2">
+                            <span class="text2_tit">
+                                [민 사] 2016다35390 추심금 (가) 파기환송 [선행 추심금소송에서 확정된 화해권고결정의 효력이 다른 채 ...
+                            </span>
+                            <img src="./img/dotLineBg.png" alt="">
+                        </div>
+                        <div class="box1_text3">
+                            <ul>
+                                <li>
+                                    <a href="">제1심에서 부정기형을 선고하였는데 ...</a>
+                                    <span>2020.10.22</span>
+                                </li>
+                                <li>
+                                    <a href="">저당권이 설정된 자동차를 임의처분 ...</a>
+                                    <span>2020.10.22</span>
+                                </li>
+                                <li>
+                                    <a href="">대법원 2020. 10. 22. ...</a>
+                                    <span>2020.10.22</span>
+                                </li>              
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="box4">
+                    <div class="box4_tit">
+                        <h1>포토뉴스</h1>
+                        <a href=""><img src="./img/btn_more.png" alt=""></a>
+                    </div>
+                    <div class="box4_content">
+                        <div class="box4_img">
+                            <img src="./img/newImg1.jpg" alt="">
+                        </div>
+                        <div class="box4_text1">
+                            <span class="text4_tit">
+                                신임법관 임명식
+                            </span>
+                        </div>
+                        <div class="box4_text2">
+                            <img src="./img/dotLineBg.png" alt="">
+                        </div>
+                        <div class="box1_text3">
+                            <ul>
+                                <li>
+                                    <a href="">대한민국-싱가포르 대법원장 화상회담</a>
+                                    <span>2020.10.19</span>
+                                </li>
+                                <li>
+                                    <a href="">사법행정자문회의 제8차 회의(정기회의) ...</a>
+                                    <span>2020.09.24</span>
+                                </li>         
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="box5">
+                    <div class="box5_tit">
+                        <h1>선고영상</h1>
+                        <a href=""><img src="./img/btn_more.png" alt=""></a>
+                    </div>
+                    <div class="box5_tit_main">
+                        <div class="box5_left">
+                            <img src="./img/movie1.jpg" alt="">
+                        </div>
+                        <div class="box5_right">
+                            <a href="">대법원 전원합의체 2020. 10. 22.자 판결선고 동영상</a>
+                            <span class="box5_span">2020.10.27</span>
+                        </div>
+                    </div>
+                    <div class="box6_tit">
+                        <h1>공개변론</h1>
+                        <a href=""><img src="./img/btn_more.png" alt=""></a>
+                    </div>
+                    <div class="box6_tit_main">
+                        <div class="box6_left">
+                            <img src="./img/movie2.jpg" alt="">
+                        </div>
+                        <div class="box6_right">
+                            <a href="">산업재해 사망자 유족 특별채용 사건 공개변론 동영상</a>
+                            <span class="box6_span">2020.06.30</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box7">
+                    <div class="box7_tit1">
+                        <ul>
+                            <li><img src="./img/banner1Bg.png" alt=""></li>
+                            <li class="box7_text"><a href="">위치안내 ></a></li>
+                            <li class="box7_text">대법원을 찾아오시는 길안내 입니다.</li>
+                        </ul>
+                    </div>
+                    <div class="box7_tit2">
+                        <ul>
+                            <li><img src="./img/banner2Bg.png" alt=""></li>
+                            <li class="box7_text2"><a href="">단체견학안내 ></a></li>
+                            <li class="box7_text2">단체견학은 20명 이상 50명 이하 신청가능</li>
+                        </ul>
+                    </div>
+                    <div class="box7_tit3">
+                        <ul>
+                            <li><img src="./img/banner3Bg.png" alt=""></li>
+                            <li class="box7_text3"><a href="">법원전시관 ></a></li>
+                            <li class="box7_text3">월요일-금요일 09:30 ~ 17:30</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="ft">
+            <div class="footer_top">
+                <div class="footer_top_main">
+                    <div class="ft_top_left">
+                        <ul>
+                            <li class="ft_top_chanel">소통채널바로가기 :</li>
+                            <li><a href="" id="img"></a></li>
+                            <li><a href="" id="img1"></a></li>
+                            <li><a href="" id="img2"></a></li>
+                            <li><a href="" id="img3"></a></li>
+                            <li><a href="" id="img4"></a></li>
+                            <li><a href="" id="img5"></a></li>
+                            <li><a href="" id="img6"></a></li>
+
+                        </ul>
+                    </div>
+                    <div class="ft_top_right">
+                        <ul>
+                            <li>
+                                <a href="" id="ft_top_right_sub">위치안내</a>
+                                
+                            </li>
+                            <li>
+                                <a href="" id="ft_top_right_sub2">단체견학안내</a>
+                                
+                            </li>
+                            <li>
+                                <a href="" id="ft_top_right_sub3">법원전시관</a>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+               
+            </div>
+            <div class="footer_center">
+                <div class="footer_center_main">
+                    <ul>
+                        <li>
+                            <a href="" class="main_bar">재판</a>
+                            <dl class="main_bar_dl" ><a href="" class="main_bar_dl_a">대법원 주요 재판 안내</a>
+                                <dt><a href="" class="main_bar_sub">선고</a></dt>
+                                <dt><a href="" class="main_bar_sub">진행</a></dt>
+                                <dt><a href="" class="main_bar_sub">변론</a></dt>
+                            </dl>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">주요 판결</a>
+                            </dl>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">공개 변론</a>
+                                <dt><a href="" class="main_bar_sub">동영상</a></dt>
+                                <dt><a href="" class="main_bar_sub">방청안내</a></dt>
+                            </dl>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">선고 영상</a>
+                                <dt><a href="" class="main_bar_sub">선고</a></dt>
+                                <dt><a href="" class="main_bar_sub">진행</a></dt>
+                                <dt><a href="" class="main_bar_sub">변론</a></dt>
+                            </dl>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">재판 절차</a>
+                                <dt><a href="" class="main_bar_sub">상소절차.개요</a></dt>
+                                <dt><a href="" class="main_bar_sub">민사.행정.특허.가사.형사</a></dt>
+                            </dl>
+                        </li>
+                        <li>
+                            <a href="" class="main_bar">소식</a>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">대법원</a></dl>
+                                <dt><a href="" class="main_bar_sub">새소식</a></dt>
+                                <dt><a href="" class="main_bar_sub">포토뉴스</a></dt>
+                                <dt><a href="" class="main_bar_sub">보도자료/언론보도해명</a></dt>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">대법원장</a></dl>
+                                <dt><a href="" class="main_bar_sub">연설문</a></dt>
+                                <dt><a href="" class="main_bar_sub">동정</a></dt>
+                                
+                        </li>
+                        <li>
+                            <a href="" class="main_bar">청사안내</a>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">청사 소개</a></dl>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">청사 갤러리</a></dl>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">법원전시관</a></dl>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">찾아오시는 길</a></dl>
+                        </li>
+                        <li>
+                            <a href="" class="main_bar">견학안내</a>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">대법원 단체견학 안내</a></dl>
+                                <dt><a href="" class="main_bar_sub">단체견학안내</a></dt>
+                                <dt><a href="" class="main_bar_sub">단체견학신청</a></dt>
+                        </li>
+                        <li>
+                            <a href="" class="main_bar">대법원소개</a>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">대법원장</a></dl>
+                                <dt><a href="" class="main_bar_sub">인사말</a></dt>
+                                <dt><a href="" class="main_bar_sub">악력</a></dt>
+                                <dt><a href=""class="main_bar_sub">역대 대법원장</a></dt>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">대법관</a></dl>
+                                <dt><a href="" class="main_bar_sub">대법관</a></dt>
+                                <dt><a href="" class="main_bar_sub">역대 대법관</a></dt>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">대법원 역사</a></dl>
+                        </li>
+                        <li class="main_bar_fuction">
+                            <a href="" class="main_bar"></a>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">대법원 기능</a></dl>
+                                <dt><a href="" class="main_bar_sub">재판</a></dt>
+                                <dt><a href="" class="main_bar_sub">사법행정</a></dt>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">대법원의 구성</a></dl>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">대법원의 기관</a></dl>
+                                <dt><a href="" class="main_bar_sub">법원행정처</a></dt>
+                                <dt><a href="" class="main_bar_sub">사법연수원</a></dt>
+                                <dt><a href=""class="main_bar_sub">사법정책연구원</a></dt>
+                                <dt><a href=""class="main_bar_sub">법원공무원교육원</a></dt>
+                                <dt><a href="" class="main_bar_sub">법원도서관</a></dt>
+                        </li>
+                        <li>
+                            <a href="" class="main_bar">사법행정문회의</a>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">소개</a></dl>
+                                <dt><a href="" class="main_bar_sub">사법행정자문회의</a></dt>
+                                <dt><a href="" class="main_bar_sub">의장 및 위원</a></dt>
+                                <dt><a href="" class="main_bar_sub">분과위원회 위원</a></dt>
+                                <dt><a href="" class="main_bar_sub">사법행정자문회의 기구도</a></dt>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">소식</a></dl>
+                                <dt><a href="" class="main_bar_sub">공지사항</a></dt>
+                                <dt><a href="" class="main_bar_sub">보도자료</a></dt>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">정보</a></dl>
+                                <dt><a href="" class="main_bar_sub">회의자료</a></dt>
+                                <dt><a href="" class="main_bar_sub">회의결과</a></dt>
+                                <dt><a href="" class="main_bar_sub">사법행정자문회의 규칙</a></dt>
+                                <dt><a href="" class="main_bar_sub">사법행정자문회의 운영세척</a></dt>
+                            <dl class="main_bar_dl"><a href="" class="main_bar_dl_a">위원공간</a></dl>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_right">
+                <div class="footer_right_main">
+                    <div class="fnb">
+                        <a href="">
+                            <img src="./img/footerLogo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="fnb2">
+                        <ul>
+                            <li ><a href="" id="tit">개인정보처리방침</a> </li>
+                            <li><a href="">영상정보처리기기운영.관리방침</a> </li>
+                            <li><a href="">저작보호정책</a></li>
+                        </ul>
+                        <p class="ft_span">대표전화 02)3480-1100 | 홈페이지 이용 문의 02)3480-1715(평일9시~18시) | 인터넷등기 사용자지원센터 1544-0770</p>
+                        <p class="ft_span">COPYRIGHTⓒ 2016 SUPREME COURT OF KOREA. ALL RIGHTS RESERVED.</p>
+                    </div>
+                    <div class="fnb3">
+                        <a href="">
+                            <img src="./img/certi.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
